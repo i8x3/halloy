@@ -1237,7 +1237,7 @@ impl Dashboard {
         }
 
         // Default split could be a config option.
-        let axis = pane_grid::Axis::Horizontal;
+        let axis = pane_grid::Axis::Vertical;
         let pane_to_split = {
             if let Some((_, pane)) = self.focus.filter(|(window, _)| *window == main_window.id) {
                 pane
