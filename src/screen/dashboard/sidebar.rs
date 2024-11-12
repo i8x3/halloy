@@ -161,7 +161,7 @@ impl Sidebar {
 
                     match menu {
                         Menu::RefreshConfig => context_button(
-                            text("Reload configuration"),
+                            text("Reload Configuration"),
                             Some(&keyboard.reload_configuration),
                             icon::refresh(),
                             Message::ReloadingConfigFile,
@@ -171,6 +171,11 @@ impl Sidebar {
                             Some(&keyboard.command_bar),
                             icon::search(),
                             Message::ToggleCommandBar,
+                        ),
+                        Menu::ConfigDir => context_button(
+                            text("Open Configuration Folder"),
+                            icon::folder(),
+                            Configuration::OpenDirectory,
                         ),
                         Menu::FileTransfers => context_button(
                             text("File Transfers").style(if file_transfers.is_empty() {
