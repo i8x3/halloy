@@ -38,7 +38,7 @@ pub enum Command {
     ToggleSidebar,
     CommandBar,
     ReloadConfiguration,
-    OpenConfigurationDirectory
+    OpenConfigurationDirectory,
     FileTransfers,
     Logs,
     ThemeEditor,
