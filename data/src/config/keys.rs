@@ -34,6 +34,8 @@ pub struct Keyboard {
     pub command_bar: KeyBind,
     #[serde(default = "KeyBind::reload_configuration")]
     pub reload_configuration: KeyBind,
+    #[serde(default = "Keybind::open_config_dir")]
+    pub open_config_dir: Keybind,
     #[serde(default = "KeyBind::file_transfers")]
     pub file_transfers: KeyBind,
     #[serde(default = "KeyBind::logs")]
@@ -62,6 +64,7 @@ impl Default for Keyboard {
             toggle_topic: KeyBind::toggle_topic(),
             command_bar: KeyBind::command_bar(),
             reload_configuration: KeyBind::reload_configuration(),
+            open_config_dir: KeyBind::open_config_dir(),
             file_transfers: KeyBind::file_transfers(),
             logs: KeyBind::logs(),
             theme_editor: KeyBind::theme_editor(),
@@ -90,6 +93,7 @@ impl Keyboard {
             shortcut(self.toggle_sidebar.clone(), ToggleSidebar),
             shortcut(self.command_bar.clone(), CommandBar),
             shortcut(self.reload_configuration.clone(), ReloadConfiguration),
+            shortcut(self.open_config_dir.clone(), OpenConfigurationDirectory)
             shortcut(self.file_transfers.clone(), FileTransfers),
             shortcut(self.logs.clone(), Logs),
             shortcut(self.theme_editor.clone(), ThemeEditor),

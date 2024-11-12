@@ -38,6 +38,7 @@ pub enum Command {
     ToggleSidebar,
     CommandBar,
     ReloadConfiguration,
+    OpenConfigurationDirectory
     FileTransfers,
     Logs,
     ThemeEditor,
@@ -128,6 +129,7 @@ impl KeyBind {
     default!(toggle_topic, "t", COMMAND | ALT);
     default!(command_bar, "k", COMMAND);
     default!(reload_configuration, "r", COMMAND);
+    default!(open_config_dir, "y", COMMAND);
     default!(file_transfers, "j", COMMAND);
     default!(logs, "l", COMMAND);
     default!(theme_editor, "t", COMMAND);

@@ -37,6 +37,22 @@ pub enum Message {
 }
 
 #[derive(Debug, Clone)]
+pub enum Command {
+    Version(Version),
+    Buffer(Buffer),
+    Configuration(Configuration),
+    UI(Ui),
+    Theme(Theme),
+}
+
+#[derive(Debug, Clone)]
+pub enum Configuration {
+    Reload,
+    OpenDirectory,
+    OpenWebsite,
+}
+
+#[derive(Debug, Clone)]
 pub enum Event {
     Open(buffer::Upstream),
     Popout(buffer::Upstream),
@@ -173,7 +189,8 @@ impl Sidebar {
                             Message::ToggleCommandBar,
                         ),
                         Menu::ConfigDir => context_button(
-                            text("Open Configuration Folder"),
+                            text("Open Configuration"),
+                            Some(&keyboard.open_config_dir),
                             icon::folder(),
                             Configuration::OpenDirectory,
                         ),
@@ -410,6 +427,7 @@ enum Menu {
     Version,
     HorizontalRule,
     Documentation,
+    ConfigDir,
 }
 
 impl Menu {
@@ -419,6 +437,7 @@ impl Menu {
             Menu::HorizontalRule,
             Menu::CommandBar,
             Menu::FileTransfers,
+            Menu::ConfigDir,
             Menu::Highlights,
             Menu::Logs,
             Menu::RefreshConfig,

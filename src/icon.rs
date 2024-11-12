@@ -40,6 +40,10 @@ pub fn search<'a>() -> Text<'a> {
     to_text('\u{E808}')
 }
 
+pub fn folder<'a>() -> Text<'a> {
+    to_text('\u{E815}')
+}
+
 pub fn checkmark<'a>() -> Text<'a> {
     to_text('\u{E806}')
 }
