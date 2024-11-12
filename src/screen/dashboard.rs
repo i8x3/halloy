@@ -61,6 +61,13 @@ pub enum Message {
     ConfigReloaded(Result<Config, config::Error>),
 }
 
+#[derive(Debug, Clone)]
+pub enum Configuration {
+    Reload,
+    OpenDirectory,
+    OpenWebsite,
+}
+
 #[derive(Debug)]
 pub enum Event {
     ConfigReloaded(Result<Config, config::Error>),
@@ -510,6 +517,10 @@ impl Dashboard {
                             main_window,
                         ),
                         None,
+                    ),
+                    sidebar::Event::OpenDirectory => (
+                        let _ = Configuration::OpenDirectory
+                        (Task::none(), None)
                     ),
                     sidebar::Event::ConfigReloaded(conf) => {
                         (Task::none(), Some(Event::ConfigReloaded(conf)))

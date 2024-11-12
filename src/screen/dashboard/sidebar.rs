@@ -32,17 +32,9 @@ pub enum Message {
     ConfigReloaded(Result<Config, config::Error>),
     OpenReleaseWebsite,
     OpenDocumentation,
+    OpenDirectory,
     ReloadComplete,
     Noop,
-}
-
-#[derive(Debug, Clone)]
-pub enum Command {
-    Version(Version),
-    Buffer(Buffer),
-    Configuration(Configuration),
-    UI(Ui),
-    Theme(Theme),
 }
 
 #[derive(Debug, Clone)]
@@ -192,7 +184,7 @@ impl Sidebar {
                             text("Open Configuration"),
                             Some(&keyboard.open_config_dir),
                             icon::folder(),
-                            Configuration::OpenDirectory,
+                            Message::OpenDirectory,
                         ),
                         Menu::FileTransfers => context_button(
                             text("File Transfers").style(if file_transfers.is_empty() {
